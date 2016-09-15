@@ -9,14 +9,19 @@ occupations = occupations[1:len(occupations)-1] #removes the job class and the t
 Occups = []
 percentages = []
 for x in range (0,len(occupations)-1):
-    y = occupations[x].split(',')#spliting a row into occupation adn percetage seperately
-    Occups.append(y[:len(y)-1]) #occupations is all the stuff before the last comma
-    percentages.append(y[len(y)-1])#percent is after the last comma
-print Occups #each occupation is a mini list of the big list (solution to problem with commas)
-print percentages
+    lastCom = occupations[x].rfind(",")
+    y = occupations[x][:lastCom]#spliting a row into occupation adn percetage seperately
+    if y.count(',')>0:#if there is more than one comma
+        y = y[1:len(y)-1]#get rid of the ""
+    print y
+    q = occupations[x][lastCom+1:]
+    print q
+    Occups.append(y) #occupations is all the stuff before the last comma
+    percentages.append(q) #percent is after the last comma
 prof_dict = {}
 for i in range(len(occupations)-1):#making it a dict
-    prof_dict[Occups[i][0]] = percentages[i]
+    print Occups[i]
+    prof_dict[Occups[i]] = percentages[i]
 
 for j in prof_dict:
     print j, prof_dict[j]
