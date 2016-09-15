@@ -5,13 +5,15 @@
 occupations = open('occupations.csv','r')
 occupations = occupations.read()
 occupations = occupations.split('\n')
-occupations = occupations[1:]
+occupations = occupations[1:len(occupations)-1] #removes the job class and the total
+Occups = []
 percentages = []
 for x in range (0,len(occupations)-1):
     y = occupations[x].split(',')
-    print y
-    occupations[x] = y[0]
-    percentages.append(y[1])
+    Occups.append(y[:len(y)-1]) 
+    percentages.append(y[len(y)-1])
+print Occups #each occupation is a mini list of the big list (solution to problem with commas)
+print percentages
 prof_dict = {}
 for i in range(len(occupations)):
     dict[percentages[i]] = occupations[i]
