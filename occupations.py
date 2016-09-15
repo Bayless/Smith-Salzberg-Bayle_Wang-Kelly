@@ -15,9 +15,12 @@ for x in range (0,len(occupations)-1):
 print Occups #each occupation is a mini list of the big list (solution to problem with commas)
 print percentages
 prof_dict = {}
-for i in range(len(occupations)):
-    dict[percentages[i]] = occupations[i]
-print 
+for i in range(len(occupations)-1):
+    prof_dict[Occups[i][0]] = percentages[i]
+
+for j in prof_dict:
+    print j, prof_dict[j]
+
 #.index('')
 #dict['key']=val
 #convert all percentages to nums
