@@ -17,3 +17,5 @@ for i in range(len(occupations)):
     dict[percentages[i]] = occupations[i]
 print 
 #.index('')
+#dict['key']=val
+#convert all percentages to nums
